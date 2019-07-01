@@ -1,2 +1,2 @@
-# netcore
-ASP.NET core starter kit
+# ASP>NET Samples
+ASP.NET Samples and  starter kits
