@@ -15,7 +15,7 @@ namespace Sample.Utilities
 
         private static readonly HttpClient client = new HttpClient(); 
 
-        private static async Task<List<TypeOfValue>> BasicCallAsync<TypeOfValue>(string Url)
+        public static async Task<List<TypeOfValue>> BasicCallAsync<TypeOfValue>(string Url)
         {
             var content = await client.GetStringAsync(Url);
             return JsonConvert.DeserializeObject<List<TypeOfValue>>(content);
@@ -122,7 +122,7 @@ namespace Sample.Utilities
             }
         }
 
-        private static async Task PostBasicAsync(string Url, object content, CancellationToken cancellationToken)
+        public static async Task PostBasicAsync(string Url, object content, CancellationToken cancellationToken)
         {
             using (var client = new HttpClient())
             using (var request = new HttpRequestMessage(HttpMethod.Post, Url))

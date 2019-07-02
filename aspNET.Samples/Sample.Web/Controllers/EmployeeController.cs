@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations;
 using Sample.Data;
+using Sample.Services.Implementations;
 
 namespace Sample.Web.Controllers
 {
@@ -22,6 +23,8 @@ namespace Sample.Web.Controllers
         }
         public ActionResult Employees()
         {
+            PlaceholderRepository<User> userRepo = new PlaceholderRepository<User>("https://jsonplaceholder.typicode.com/users");
+            userRepo.GetAll();
             return View(LoadEmployees());
         }
 

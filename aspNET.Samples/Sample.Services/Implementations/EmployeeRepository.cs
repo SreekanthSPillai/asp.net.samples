@@ -12,16 +12,11 @@ namespace Sample.Services.Implementations
 		{
 		}
 
-		public IQueryable<EmployeeModel> GetPendingRequirements(Guid crmCaseId, IEnumerable<string> barcodeNumbers)
+		public IQueryable<EmployeeModel> GetEmployees(IEnumerable<string> employeeIds)
 		{
 			return GetAll().OfType<EmployeeModel>()
 					.Where(prt => prt.Name == "ABC");
 		}
 
-		public void ChangeStatus(Guid taskId, EmployeeModel status)
-		{
-			var task = GetById(taskId);
-			Update(task);
-		}
 	}
 }

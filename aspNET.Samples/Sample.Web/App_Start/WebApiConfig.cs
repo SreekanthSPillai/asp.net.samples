@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.OData.Builder;
+using System.Web.Http.OData.Extensions;
+using Sample.Data;
 
 namespace Sample.Web
 {
@@ -19,6 +22,12 @@ namespace Sample.Web
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
+            // Note that OData URLs are case sensitive.
+            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+            builder.EntitySet<User>("Users");
+            config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
         }
     }
 }

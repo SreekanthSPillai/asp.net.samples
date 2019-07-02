@@ -7,7 +7,7 @@ namespace Sample.Services.Interfaces
 {
 	public interface IEmployeeRepository : IGenericRepository<EmployeeModel>
 	{
-		IQueryable<EmployeeModel> GetPendingRequirements(Guid crmCaseId, IEnumerable<string> barcodeNumber);
-		void ChangeStatus(Guid taskId, EmployeeModel status);
-	}
+        IQueryable<EmployeeModel> GetEmployees(IEnumerable<string> employeeIds);
+
+    }
 }
