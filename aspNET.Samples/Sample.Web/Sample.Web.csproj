@@ -135,7 +135,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APIHelper.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -267,7 +266,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ModelProject\Sample.Data.csproj">
+    <ProjectReference Include="..\Sample.Data\Sample.Data.csproj">
       <Project>{3afd9b3a-1ffe-4bef-8ab5-1c2c5d958d0a}</Project>
       <Name>Sample.Data</Name>
     </ProjectReference>
