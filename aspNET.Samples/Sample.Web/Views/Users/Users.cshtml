@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Sample.Data.User>
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<p>
+    @Html.ActionLink("Create New", "AddUser")
+</p>
+<div style="text-align:right">@Html.ActionLink("Print", "PrintAll")</div>
+<table class="table table-bordered">
+    <tr>
+        <th> @Html.DisplayNameFor(model => model.name) </th>
+        <th> @Html.DisplayNameFor(model => model.company) </th>
+        <th> @Html.DisplayNameFor(model => model.address) </th>
+        <th></th>
+    </tr> @foreach (var item in Model)
+    {
+        <tr>
+            <td> @Html.DisplayFor(modelItem => item.name) </td>
+            <td> @Html.DisplayFor(modelItem => item.company) </td>
+            <td> @Html.DisplayFor(modelItem => item.address) </td>
+            <td> @Html.ActionLink("Details", "User", new { id = item.id }) </td>
+        </tr>}
+</table>

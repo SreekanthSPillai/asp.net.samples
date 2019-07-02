@@ -28,7 +28,7 @@ namespace Sample.Data
         public string bs { get; set; }
     }
 
-    public class User
+    public class User: BaseEntity
     {
         public int id { get; set; }
         public string name { get; set; }

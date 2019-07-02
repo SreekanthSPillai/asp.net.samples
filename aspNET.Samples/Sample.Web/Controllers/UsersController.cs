@@ -1,121 +1,97 @@
-﻿using System;
+﻿using Sample.Data;
+using Sample.Services.API;
+using Sample.Services.DataContext;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.ModelBinding;
-using System.Web.Http.OData;
-using System.Web.Http.OData.Query;
-using System.Web.Http.OData.Routing;
-using Sample.Data;
-using Microsoft.Data.OData;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Sample.Web.Controllers
 {
-    
-    public class UsersController : ODataController
+    public class UsersController : Controller
     {
-        private static ODataValidationSettings _validationSettings = new ODataValidationSettings();
 
-        // GET: odata/Users
-        public async Task<IHttpActionResult> GetUsers(ODataQueryOptions<User> queryOptions)
+
+        FakeDataRepository<User> repo = new FakeDataRepository<User>(new UserDataContext());
+
+        // GET: Users
+        public ActionResult Index()
         {
-            // validate the query.
+                      
+            return View("Users", repo.GetAll());
+        }
+
+        // GET: Users/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
+
+        // GET: Users/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Users/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
             try
             {
-                queryOptions.Validate(_validationSettings);
-            }
-            catch (ODataException ex)
-            {
-                return BadRequest(ex.Message);
-            }
+                // TODO: Add insert logic here
 
-            // return Ok<IEnumerable<User>>(users);
-            return StatusCode(HttpStatusCode.NotImplemented);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
 
-        // GET: odata/Users(5)
-        public async Task<IHttpActionResult> GetUser([FromODataUri] int key, ODataQueryOptions<User> queryOptions)
+        // GET: Users/Edit/5
+        public ActionResult Edit(int id)
         {
-            // validate the query.
+            return View();
+        }
+
+        // POST: Users/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
             try
             {
-                queryOptions.Validate(_validationSettings);
-            }
-            catch (ODataException ex)
-            {
-                return BadRequest(ex.Message);
-            }
+                // TODO: Add update logic here
 
-            // return Ok<User>(user);
-            return StatusCode(HttpStatusCode.NotImplemented);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
 
-        // PUT: odata/Users(5)
-        public async Task<IHttpActionResult> Put([FromODataUri] int key, Delta<User> delta)
+        // GET: Users/Delete/5
+        public ActionResult Delete(int id)
         {
-            Validate(delta.GetEntity());
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            // TODO: Get the entity here.
-
-            // delta.Put(user);
-
-            // TODO: Save the patched entity.
-
-            // return Updated(user);
-            return StatusCode(HttpStatusCode.NotImplemented);
+            return View();
         }
 
-        // POST: odata/Users
-        public async Task<IHttpActionResult> Post(User user)
+        // POST: Users/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
             }
-
-            // TODO: Add create logic here.
-
-            // return Created(user);
-            return StatusCode(HttpStatusCode.NotImplemented);
-        }
-
-        // PATCH: odata/Users(5)
-        [AcceptVerbs("PATCH", "MERGE")]
-        public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<User> delta)
-        {
-            Validate(delta.GetEntity());
-
-            if (!ModelState.IsValid)
+            catch
             {
-                return BadRequest(ModelState);
+                return View();
             }
-
-            // TODO: Get the entity here.
-
-            // delta.Patch(user);
-
-            // TODO: Save the patched entity.
-
-            // return Updated(user);
-            return StatusCode(HttpStatusCode.NotImplemented);
-        }
-
-        // DELETE: odata/Users(5)
-        public async Task<IHttpActionResult> Delete([FromODataUri] int key)
-        {
-            // TODO: Add delete logic here.
-
-            // return StatusCode(HttpStatusCode.NoContent);
-            return StatusCode(HttpStatusCode.NotImplemented);
         }
     }
 }

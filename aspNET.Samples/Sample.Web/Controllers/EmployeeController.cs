@@ -23,8 +23,6 @@ namespace Sample.Web.Controllers
         }
         public ActionResult Employees()
         {
-            PlaceholderRepository<User> userRepo = new PlaceholderRepository<User>("https://jsonplaceholder.typicode.com/users");
-            userRepo.GetAll();
             return View(LoadEmployees());
         }
 
