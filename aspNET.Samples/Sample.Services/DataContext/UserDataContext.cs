@@ -18,13 +18,16 @@ namespace Sample.Services.DataContext
             restClient.Users(entity).Delete();  
         }
 
-        public IQueryable<User> GetAll()
+        public IList<User> GetAll()
         {
-            var fetchTask = Task<IQueryable<User>>.Run(() => {
-                return restClient.Users().Get();
-            });
 
-            return Task.FromResult(fetchTask.Result);
+            var user =  restClient.Users().Get();
+
+            //var fetchTask = Task<IQueryable<User>>.Run(() => {
+            //    return restClient.Users().Get();
+            //});
+
+            return user.Result;
         }
 
         public User GetById(object id)

@@ -10,7 +10,7 @@ namespace Sample.Services.Interfaces
     public interface IDataContext<T> where T : BaseEntity
     {
 
-        IQueryable<T> GetAll();
+        IList<T> GetAll();
         T GetById(object id);
         void Insert(T entity);
         void Update(T entity);

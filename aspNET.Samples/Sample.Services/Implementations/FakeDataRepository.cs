@@ -19,7 +19,7 @@ namespace Sample.Services.API
             fakeData = context;
         }
 
-		public IQueryable<T> GetAll()
+		public IList<T> GetAll()
 		{
             return fakeData.GetAll();
 		}
