@@ -7,14 +7,9 @@ using System.ComponentModel.DataAnnotations;
 namespace Sample.Data
 {
 
-    public class EmployeeModel
+    public class EmployeeModel: BaseEntity
     {
-        [Key]
-        public int ID
-        {
-            get;
-            set;
-        }
+        
         public string Name
         {
             get;

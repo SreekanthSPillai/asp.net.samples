@@ -15,8 +15,6 @@ namespace Sample.Utilities
 
         private static readonly HttpClient client = new HttpClient(); 
 
-        
-
         private static async Task<List<TypeOfValue>> BasicCallAsync<TypeOfValue>(string Url)
         {
             var content = await client.GetStringAsync(Url);

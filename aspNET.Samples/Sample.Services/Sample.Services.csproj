@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3AFD9B3A-1FFE-4BEF-8AB5-1C2C5D958D0A}</ProjectGuid>
+    <ProjectGuid>{AFF1A0A7-7C12-4C5C-A5B3-4616572C2D4D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sample.Data</RootNamespace>
-    <AssemblyName>Sample.Data</AssemblyName>
+    <RootNamespace>Sample.Services</RootNamespace>
+    <AssemblyName>Sample.Services</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,24 +47,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseEntity.cs" />
-    <Compile Include="EmployeeDBContext.cs" />
-    <Compile Include="EmployeeModel.cs" />
-    <Compile Include="Migrations\201906301716524_InitEmployee.cs" />
-    <Compile Include="Migrations\201906301716524_InitEmployee.Designer.cs">
-      <DependentUpon>201906301716524_InitEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Implementations\GenericRepository.cs" />
+    <Compile Include="Implementations\EmployeeRepository.cs" />
+    <Compile Include="Interfaces\IGenericRepository.cs" />
+    <Compile Include="Interfaces\IEmployeeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sample.Data\Sample.Data.csproj">
+      <Project>{3afd9b3a-1ffe-4bef-8ab5-1c2c5d958d0a}</Project>
+      <Name>Sample.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906301716524_InitEmployee.resx">
-      <DependentUpon>201906301716524_InitEmployee.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
