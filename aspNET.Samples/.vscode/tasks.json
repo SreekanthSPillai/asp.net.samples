@@ -33,8 +33,8 @@
                 "command": "C:\\Program Files (x86)\\IIS Express\\iisexpress.exe"
             },
             "args":[
-                "/path:${workspaceRoot}\\asp.net.Samples\\",
-                "/port:52945"
+                "/path:${workspaceRoot}\\asp.net.samples\\aspNET.Samples\\Sample.Web",
+                "/port:44349"
             ],
             "presentation": {
                 "reveal": "always"
